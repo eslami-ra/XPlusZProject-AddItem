@@ -2,10 +2,12 @@
 <html lang="en" ng-app="addItemApp">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Add item to the selected column in a table. Delete item and search and filter item by using AngularJs.">
+<meta name="keywords" content="add item, delete item, angularjs, CSS, SEO friendly, javascript, dynamic table, filter table" >
 <title>ADD ITEM</title>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather&#8217">
-<link rel="stylesheet" type="text/css" href="addItem.css">
+<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="style/addItem.css">
 
 </head>
 
@@ -13,7 +15,7 @@
 <div ng-controller="addItemCtrl">
 
 <h1>Marvelous!</h1>
-<p id="headText">lorem lpsum is simply dummy text os the printing and typesetting industry. 
+<p id="headText">Lorem lpsum is simply dummy text of the printing and typesetting industry. 
 Lorem lpsum has been the industry's standard dummy text ever since. </p>
 
 <table class="content">
@@ -24,41 +26,41 @@ Lorem lpsum has been the industry's standard dummy text ever since. </p>
 	</thead>
 	<tbody>
 		<tr>
-			<td><input type="text" ng-model="newItem" value="ENTER ITEM" class="chooseColumn"></td>
-			<td  class="gradient">COLUMN 1</td>
-			<td  class="gradient">COLUMN 2</td>
-		</tr>
-		<tr>
-			<td rowspan="2">
-				<select ng-model="selectedColumn" class="inputItem"
+			<td>
+				<input type="text" ng-model="newItem" placeholder="ENTER ITEM" class="inputItem">
+				<select ng-model="selectedColumn" class="chooseColumn"
                 	ng-options="opt as opt.label for opt in options">
                 	<option value=''>CHOOSE COLUMN</option>
            		</select>
            		<br/>
 				<button ng-click="addItem()" class="addItemButton">ADD ITEM</button><br/>
 				<span class="txt">SEARCH AN ITEM</span><br/>
-				<input type="text" ng-model="q" value="SEARCH" class="search">
+				<input type="text" ng-model="q" placeholder="SEARCH" class="search">
 			</td>
-		</tr>
-		<tr style="background-color:#fff">
-			<td>
+			<td class="internalBoder"> 
 			<table class="internalTable">
+				<tr>
+					<th  class="gradient">COLUMN 1</th>
+				</tr>
 				<tr ng-repeat="column in columnList1 | filter:q">
     				<td>
     					{{ column.value }}
-      					<button class="btn" ng-click="deleteItem(columnList1,column)">
+      					<button ng-click="deleteItem(columnList1,column)" class="deleteBtn">
       					x
       					</button>
     				</td>
  				</tr>
 			</table>
 			</td>
-			<td>
+			<td class="internalBoder">
 			<table class="internalTable">
+				<tr>
+					<th  class="gradient">COLUMN 2</th>
+				</tr>
 				<tr ng-repeat="column in columnList2 | filter:q">
     				<td>
     					{{ column.value }}
-      					<button class="btn" ng-click="deleteItem(columnList2,column)">
+      					<button ng-click="deleteItem(columnList2,column)" class="deleteBtn">
       					x
       					</button>
     				</td>
@@ -71,8 +73,8 @@ Lorem lpsum has been the industry's standard dummy text ever since. </p>
 
 </div>
 
-<script src="addItemApp.js"></script>
-<script src="addItemCtrl.js"></script>
+<script src="js/addItemApp.js"></script>
+<script src="js/addItemCtrl.js"></script>
 
 </body>
 
