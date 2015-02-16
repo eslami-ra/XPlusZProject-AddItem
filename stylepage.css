@@ -1,0 +1,11 @@
+h2{	color: #ff4100;
+	text-shadow: 2px;
+	}
+	
+li,dd{ 
+	font-style: italic;
+}
+dt{ font-weight: bold;
+	}
+dl{	margin-left:10px;}
+figure{ padding: 5px;}
